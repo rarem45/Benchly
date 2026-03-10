@@ -1,0 +1,4 @@
+# Benchly client configuration
+
+server_url: "http://127.0.0.1:5000"
+run_interval_seconds: 86400  # 24 hours

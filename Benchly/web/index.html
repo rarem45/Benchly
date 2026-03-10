@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Benchly Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Benchly Dashboard</h1>
+      <div class="controls">
+        <label>
+          Server URL
+          <input id="serverUrl" type="text" value="http://127.0.0.1:5000" />
+        </label>
+        <button id="refreshBtn">Refresh</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="stats">
+        <h2>Latest Scores</h2>
+        <div id="stats" class="cards"></div>
+      </section>
+
+      <section>
+        <h2>Leaderboard</h2>
+        <div class="table-container">
+          <table id="leaderboard">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Machine</th>
+                <th>Score</th>
+                <th>Submitted</th>
+                <th>CPU (s)</th>
+                <th>RAM (s)</th>
+                <th>Disk Write (s)</th>
+                <th>Disk Read (s)</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Benchly &mdash; Local benchmark sharing</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

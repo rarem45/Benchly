@@ -1,0 +1,6 @@
+# Benchly server configuration
+
+host: "0.0.0.0"
+port: 5000
+debug: false
+database_path: "server/benchly.db"
