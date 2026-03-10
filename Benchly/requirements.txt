@@ -5,3 +5,5 @@ psutil>=5.9
 PyQt6>=6.5
 matplotlib>=3.7
 PyYAML>=6.0
+SQLAlchemy>=2.0
+psycopg2-binary>=2.9

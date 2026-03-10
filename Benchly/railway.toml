@@ -1,0 +1,18 @@
+# Railway configuration for Benchly
+#
+# This file is optional but can be used to store Railway project metadata.
+# You can also manage deployment via the Railway CLI (https://railway.app/cli).
+
+[project]
+name = "benchly"
+
+[service]
+name = "benchly-server"
+# The default command used by Railway when deploying.
+# Railway will automatically install dependencies from requirements.txt.
+command = "python -m server.app"
+
+[env]
+# Railway will set DATABASE_URL when you add the PostgreSQL plugin.
+# You can also set any additional environment variables here.
+# Example: BENCHLY_DEBUG = "true"

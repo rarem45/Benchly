@@ -4,8 +4,9 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Database file location can be overridden via environment variable.
+# Database configuration
 DATABASE_PATH = os.getenv("BENCHLY_DB_PATH", os.path.join(BASE_DIR, "benchly.db"))
+DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite:///{DATABASE_PATH}")
 
 # Flask settings
 FLASK_HOST = os.getenv("BENCHLY_HOST", "0.0.0.0")
