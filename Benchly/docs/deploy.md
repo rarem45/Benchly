@@ -84,6 +84,12 @@ See `docs/railway.md` for step-by-step instructions to deploy Benchly on Railway
 
 ---
 
+## Render deployment
+
+See `docs/render.md` for step-by-step instructions to deploy Benchly on Render with Docker.
+
+---
+
 ## Optional: Run as a background service (Linux)
 
 Create a systemd service (`/etc/systemd/system/benchly.service`):

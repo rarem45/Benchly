@@ -1,0 +1,19 @@
+# Render service configuration (optional, but ensures correct build settings)
+# Once committed, Render will use this configuration to build/deploy your service.
+
+services:
+  - type: web
+    name: benchly
+    env: docker
+    plan: free
+    repo: <your-git-repo-url>
+    branch: main
+    dockerfilePath: Dockerfile
+    # Optionally set context if your service is not in the repo root.
+    # context: .
+    envVars:
+      # If you use a managed database, set DATABASE_URL here.
+      # - key: DATABASE_URL
+      #   value: "postgres://..."
+      - key: PORT
+        value: "5000"
