@@ -58,6 +58,21 @@ Your clients can then point at:
 https://<your-replit-name>.repl.co
 ```
 
+### Running benchmarks on the server (optional)
+
+Benchly can also run the client benchmark code on the server itself (useful for scheduled runs or remote triggers).
+
+- Set an optional auth token:
+  - `RUN_BENCHMARK_AUTH_TOKEN=some-secret-value`
+- Trigger a benchmark run via HTTP POST:
+
+```bash
+curl -X POST "https://<your-replit-name>.repl.co/run-benchmark" \
+  -H "Authorization: some-secret-value"
+```
+
+The server will execute the same benchmark logic as the client and store results in the database.
+
 ## Leaderboard & Ranking
 
 Benchly computes a simple **score** for each submission by normalizing benchmark times and combining them into a single value (higher is better). The API `/leaderboard` endpoint returns sorted results by score.

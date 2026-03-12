@@ -4,7 +4,8 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 from . import db
-from .config import FLASK_DEBUG, FLASK_HOST, FLASK_PORT
+from .config import FLASK_DEBUG, FLASK_HOST, FLASK_PORT, RUN_BENCHMARK_AUTH_TOKEN
+from client.benchly_client import build_payload
 
 
 def create_app():
@@ -45,6 +46,18 @@ def create_app():
         limit = request.args.get("limit", default=100, type=int)
         data = db.get_history(machine_id=machine_id, limit=limit)
         return jsonify({"results": data, "count": len(data)})
+
+    @app.route("/run-benchmark", methods=["POST"])
+    def run_benchmark():
+        # Optional token-based guard to avoid arbitrary public execution
+        if RUN_BENCHMARK_AUTH_TOKEN:
+            token = request.headers.get("Authorization") or request.args.get("token")
+            if token != RUN_BENCHMARK_AUTH_TOKEN:
+                return jsonify({"error": "Unauthorized"}), 401
+
+        payload = build_payload()
+        record_id = db.insert_benchmark(machine_id=payload.get("machine_id"), payload=payload)
+        return jsonify({"status": "ok", "record_id": record_id, "machine_id": payload.get("machine_id")}), 201
 
     return app
 
